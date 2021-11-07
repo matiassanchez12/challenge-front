@@ -17,7 +17,7 @@ const Home = ({ userData, setUser }) => {
 
   useEffect(() => {
     const idUser = parseInt(GetCookie("data").id_usuario);
-    Axios.get("http://localhost:3001/budgest/list").then((response) => {
+    Axios.get("https://gastos-app-back.herokuapp.com/budgest/list").then((response) => {
       let newArrayData = response.data.reduce((acc, x) => {
         if (x.id_usuario !== idUser) {
           return acc;
