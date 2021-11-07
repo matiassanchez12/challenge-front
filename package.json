@@ -2,7 +2,6 @@
     "name": "performance",
     "version": "0.1.0",
     "private": true,
-    "proxy": "http://localhost:3001",
     "dependencies": {
         "@nextui-org/react": "^1.0.1-alpha.49",
         "@testing-library/jest-dom": "^5.14.1",
@@ -45,5 +44,10 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
-    }
+    },
+    "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+    "main": "index.js",
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
 }

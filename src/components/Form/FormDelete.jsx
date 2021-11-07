@@ -10,7 +10,7 @@ const Formdelete = ({ data, setList, showMessage }) => {
     const newData = { ...values, id: data.id, tipo: data.tipo };
     setList(newData, "delete");
     showMessage('Registro eliminado con exito!')
-    Axios.delete(`http://localhost:3001/budgest/remove/${data.id}`);
+    Axios.delete(`https://gastos-app-back.herokuapp.com/budgest/remove/${data.id}`);
   };
   return (
     <div style={{ padding: 5 }}>

@@ -19,7 +19,7 @@ const Container = styled.div`
 
 const MyForm = ({ setList, showMessage }) => {
   const sendData = async (data) => {
-    const res = await Axios.post("http://localhost:3001/budgest/insert", data);
+    const res = await Axios.post("https://gastos-app-back.herokuapp.com/budgest/insert", data);
     return res.data.insertId;
   };
 

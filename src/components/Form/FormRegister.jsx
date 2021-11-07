@@ -12,7 +12,7 @@ const FormRegister = () => {
 
   const onSubmit = async (values, { resetForm }) => {
     setIsLoading(true);
-    const res = await Axios.post("http://localhost:3001/users/insert", values);
+    const res = await Axios.post("https://gastos-app-back.herokuapp.com/users/insert", values);
     if (res.status === 200) {
       setCreateSuccessful(true);
       resetForm();

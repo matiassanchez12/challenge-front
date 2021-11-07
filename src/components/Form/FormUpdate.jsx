@@ -12,7 +12,7 @@ const MyForm = ({ data, setList, showMessage }) => {
     const newData = { ...values, id: data.id, tipo: data.tipo };
     setList(newData, "update");
     showMessage("Registro actualizado con exito!");
-    Axios.put(`http://localhost:3001/budgest/edit/${data.id}`, newData);
+    Axios.put(`https://gastos-app-back.herokuapp.com/budgest/edit/${data.id}`, newData);
   };
   return (
     <div style={{ padding: 5 }}>
