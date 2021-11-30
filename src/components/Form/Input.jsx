@@ -3,6 +3,7 @@ import { Form } from "react-bootstrap";
 
 const Input = ({ type, label, ...props }) => {
   const [field, meta] = useField(props);
+  console.log(field.value)
   return (
     <Form.Group style={{ marginBottom: 20 }}>
       <Form.Label style={{ fontWeight: "600" }}>{label}</Form.Label>
