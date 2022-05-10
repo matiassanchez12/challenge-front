@@ -17,7 +17,7 @@ const Home = ({ userData, setUser }) => {
 
   useEffect(() => {
     const idUser = parseInt(GetCookie("data").id_usuario);
-    Axios.get("https://gastos-app-back.herokuapp.com/budgest/list").then((response) => {
+    Axios.get("https://gastos-app-server.herokuapp.com/budgest/list").then((response) => {
       let newArrayData = response.data.reduce((acc, x) => {
         if (x.id_usuario !== idUser) {
           return acc;
@@ -32,10 +32,7 @@ const Home = ({ userData, setUser }) => {
 
   return (
     <div>
-      <Nav
-        userData={userData}
-        setUser={({ data, active }) => setUser({ data, active })}
-      />
+      <Nav userData={userData} setUser={({ data, active }) => setUser({ data, active })} />
       <Toast toastActive={toastActive} setToast={isToastActive} />
       {isLoading ? (
         <Loader />

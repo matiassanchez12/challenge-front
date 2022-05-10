@@ -19,7 +19,7 @@ const Container = styled.div`
 
 const MyForm = ({ setList, showMessage }) => {
   const sendData = async (data) => {
-    const res = await Axios.post("https://gastos-app-back.herokuapp.com/budgest/insert", data);
+    const res = await Axios.post("https://gastos-app-server.herokuapp.com/budgest/insert", data);
     return res.data.insertId;
   };
 
@@ -29,7 +29,7 @@ const MyForm = ({ setList, showMessage }) => {
       ...values,
       id_usuario: user.id_usuario,
     };
-    sendData(data).then((id)=>{
+    sendData(data).then((id) => {
       setList({ ...data, id: id }, "create");
     });
     resetForm();
@@ -51,12 +51,8 @@ const MyForm = ({ setList, showMessage }) => {
         onSubmit={onSubmit}
         validationSchema={Yup.object({
           concepto: Yup.string().required("Obligatorio"),
-          monto: Yup.number()
-            .required("Obligatorio")
-            .typeError("Debe ser un número"),
-          fecha: Yup.date()
-            .required("Obligatorio")
-            .typeError("Debe ser una fecha"),
+          monto: Yup.number().required("Obligatorio").typeError("Debe ser un número"),
+          fecha: Yup.date().required("Obligatorio").typeError("Debe ser una fecha"),
           tipo: Yup.string().required("Obligatorio"),
           categoria: Yup.string().required("Obligatorio"),
         })}
@@ -92,12 +88,7 @@ const MyForm = ({ setList, showMessage }) => {
             </Row>
             <Row style={{ justifyContent: "center" }}>
               <Col sm={3} style={{ alignSelf: "center" }}>
-                <Button
-                  size="sm"
-                  type="submit"
-                  style={{ marginRight: 5 }}
-                  variant="success"
-                >
+                <Button size="sm" type="submit" style={{ marginRight: 5 }} variant="success">
                   <i class="fas fa-check" style={{ marginRight: 5 }}></i>Agregar
                 </Button>
                 <Button size="sm" variant="warning" onClick={resetForm}>

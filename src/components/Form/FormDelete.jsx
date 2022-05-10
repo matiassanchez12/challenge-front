@@ -9,8 +9,8 @@ const Formdelete = ({ data, setList, showMessage }) => {
   const onSubmit = (values) => {
     const newData = { ...values, id: data.id, tipo: data.tipo };
     setList(newData, "delete");
-    showMessage('Registro eliminado con exito!')
-    Axios.delete(`https://gastos-app-back.herokuapp.com/budgest/remove/${data.id}`);
+    showMessage("Registro eliminado con exito!");
+    Axios.delete(`https://gastos-app-server.herokuapp.com/budgest/remove/${data.id}`);
   };
   return (
     <div style={{ padding: 5 }}>
@@ -34,13 +34,7 @@ const Formdelete = ({ data, setList, showMessage }) => {
               <Input type="date" name="fecha" label="Fecha" disabled />
             </Col>
             <Col sm={2} style={{ alignSelf: "center" }}>
-              <Button
-                size="sm"
-                type="submit"
-                style={{ marginRight: 5 }}
-                variant="danger"
-                onClick={active}
-              >
+              <Button size="sm" type="submit" style={{ marginRight: 5 }} variant="danger" onClick={active}>
                 <i class="far fa-trash-alt" style={{ marginRight: 5 }}></i>Eliminar
               </Button>
             </Col>

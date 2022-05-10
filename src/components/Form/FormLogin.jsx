@@ -14,7 +14,7 @@ const Formlogin = ({ setUser }) => {
 
   const onSubmit = async (values) => {
     setIsLoading(true);
-    const res = await Axios.post("https://gastos-app-back.herokuapp.com/users/login", values);
+    const res = await Axios.post("https://gastos-app-server.herokuapp.com/users/login", values);
 
     if (res.data.message === "ok") {
       SetCookie(`${res.data.user.nombre}-${res.data.user.email}-${res.data.user.id}`);
@@ -28,11 +28,7 @@ const Formlogin = ({ setUser }) => {
   return (
     <div style={{ width: 400 }}>
       {invalidUser ? (
-        <Alert
-          variant="danger"
-          onClose={() => setInvalidUser(false)}
-          dismissible
-        >
+        <Alert variant="danger" onClose={() => setInvalidUser(false)} dismissible>
           El email o el password ingresados son incorrectos
         </Alert>
       ) : null}

@@ -12,7 +12,7 @@ const MyForm = ({ data, setList, showMessage }) => {
     const newData = { ...values, id: data.id, tipo: data.tipo };
     setList(newData, "update");
     showMessage("Registro actualizado con exito!");
-    Axios.put(`https://gastos-app-back.herokuapp.com/budgest/edit/${data.id}`, newData);
+    Axios.put(`https://gastos-app-server.herokuapp.com/budgest/edit/${data.id}`, newData);
   };
   return (
     <div style={{ padding: 5 }}>
@@ -26,12 +26,8 @@ const MyForm = ({ data, setList, showMessage }) => {
         onSubmit={onSubmit}
         validationSchema={Yup.object({
           concepto: Yup.string().required("Obligatorio"),
-          monto: Yup.number()
-            .required("Obligatorio")
-            .typeError("Debe ser un número"),
-          fecha: Yup.date()
-            .required("Obligatorio")
-            .typeError("Debe ser una fecha"),
+          monto: Yup.number().required("Obligatorio").typeError("Debe ser un número"),
+          fecha: Yup.date().required("Obligatorio").typeError("Debe ser una fecha"),
         })}
       >
         <Form>
@@ -55,13 +51,7 @@ const MyForm = ({ data, setList, showMessage }) => {
               </Select>
             </Col>
             <Col sm={2} style={{ alignSelf: "center" }}>
-              <Button
-                size="sm"
-                type="submit"
-                style={{ marginRight: 5 }}
-                variant="success"
-                onClick={active}
-              >
+              <Button size="sm" type="submit" style={{ marginRight: 5 }} variant="success" onClick={active}>
                 <i class="fas fa-check" style={{ marginRight: 5 }}></i>Editar
               </Button>
             </Col>
